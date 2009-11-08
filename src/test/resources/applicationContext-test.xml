@@ -15,8 +15,6 @@
 		http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
 		">
 
-	<context:property-placeholder location="classpath:database.properties"/>
-	
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close">
 		<property name="driverClassName" value="${test.driverClassName}" />
