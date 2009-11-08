@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 import com.asosa.myapp.dao.TaskDao;
 import com.asosa.myapp.domain.Hashimoto;
 import com.asosa.myapp.domain.Speakable;
+import com.asosa.myapp.domain.Task;
 
 @Component
 @Path("/hibernate")
@@ -27,6 +28,11 @@ public class HibernateTestResource {
 	public String getIt() {
 		try {
 			taskDao.find(1L);
+			
+			Task task = new Task();
+			task.setTitle("kerf");
+			taskDao.save(task);
+			
 			return "hello" + speaker.sayHello();
 		} catch (Exception e) {
 			e.printStackTrace();
