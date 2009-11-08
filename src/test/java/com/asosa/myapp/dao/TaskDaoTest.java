@@ -1,21 +1,21 @@
 package com.asosa.myapp.dao;
 
+import static org.junit.Assert.*;
+
 import javax.annotation.Resource;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.asosa.myapp.domain.Task;
 
-import junit.framework.TestCase;
-
-public class TaskDaoTest extends TestCase {
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations={"/applicationContext-test.xml"})
+public final class TaskDaoTest extends BaseTest {
 	@Resource
 	private TaskDao taskDao;
-	
-	@Override
-	protected void setUp() throws Exception {
-		super.setUp();
-	}
 	
 	@Test
 	public void testCRUD() {
@@ -37,6 +37,4 @@ public class TaskDaoTest extends TestCase {
 		task = taskDao.find(taskId);
 		assertNull(task);
 	}
-	
-	
 }
